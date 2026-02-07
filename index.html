@@ -4,67 +4,407 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="icon.png" type="image/png">
-  <title>Privacy Policy</title>
+  <title>Privacy Policy - QuickChat</title>
   <style>
+    :root {
+      --primary-color: #25D366;
+      --secondary-color: #075E54;
+      --accent-color: #128C7E;
+      --text-color: #333;
+      --light-text: #666;
+      --bg-color: #fff;
+      --section-bg: #f8f9fa;
+      --border-color: #e9ecef;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    h1 {
-      color: #333;
-    }
-    p {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      color: #666;
+      color: var(--text-color);
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      padding: 20px;
     }
+    
     .container {
-      max-width: 800px;
+      max-width: 900px;
+      margin: 40px auto;
+      background: var(--bg-color);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    
+    .header {
+      background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.1;
+      transform: rotate(30deg);
+    }
+    
+    .logo {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .logo::before {
+      content: '💬';
+      font-size: 40px;
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      font-weight: 300;
+      max-width: 600px;
       margin: 0 auto;
+    }
+    
+    .content {
+      padding: 50px;
+    }
+    
+    h2 {
+      color: var(--secondary-color);
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--primary-color);
+      font-size: 1.8rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary-color);
+    }
+    
+    h3 {
+      color: var(--accent-color);
+      margin: 25px 0 10px;
+      font-size: 1.3rem;
+    }
+    
+    p {
+      margin-bottom: 15px;
+      color: var(--light-text);
+      font-size: 1.05rem;
+    }
+    
+    ul, ol {
+      margin: 15px 0 25px 25px;
+      color: var(--light-text);
+    }
+    
+    li {
+      margin-bottom: 10px;
+      padding-left: 5px;
+      position: relative;
+    }
+    
+    li::before {
+      content: '•';
+      color: var(--primary-color);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+      font-size: 1.2em;
+    }
+    
+    .highlight-box {
+      background: var(--section-bg);
+      border-left: 4px solid var(--primary-color);
+      padding: 25px;
+      margin: 25px 0;
+      border-radius: 0 10px 10px 0;
+    }
+    
+    .highlight-box p {
+      margin-bottom: 0;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+    
+    .contact-info {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 2px dashed var(--border-color);
+    }
+    
+    .contact-info h3 {
+      color: var(--secondary-color);
+      margin-top: 0;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+    }
+    
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      color: white;
+      font-size: 1.2rem;
+    }
+    
+    .security-badge {
+      display: inline-flex;
+      align-items: center;
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      margin: 10px 0;
+    }
+    
+    .security-badge::before {
+      content: '🔒';
+      margin-right: 8px;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: var(--primary-color);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    
+    .footer {
+      text-align: center;
+      padding: 30px;
+      background: var(--section-bg);
+      color: var(--light-text);
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .last-updated {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      .content {
+        padding: 30px;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      .header {
+        padding: 30px 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      
+      .content {
+        padding: 20px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .contact-item {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .contact-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Privacy Policy</h1>
-
-    <h2>Introduction</h2>
-    <p>Welcome to <b>QuickChat</b>. We value your privacy and are committed to protecting your data. This Privacy Policy explains how we collect, use, and disclose information when you use our app.</p>
-
-    <h2>Information We Collect</h2>
-    <p>We collect the following information:</p>
-    <ul>
-      <li><strong>Phone Numbers:</strong> When you enter a phone number to open it in WhatsApp, or when you save phone numbers in the app.</li>
-    </ul>
-
-    <h2>How We Use Your Information</h2>
-    <p>We use the information we collect to:</p>
-    <ul>
-      <li>Enable you to open phone numbers in WhatsApp without saving them in your contacts.</li>
-      <li>Allow you to save phone numbers within the app for future reference.</li>
-    </ul>
-
-    <h2>Data Storage and Security</h2>
-    <p>Your data is stored locally on your device. We do not transmit your data to our servers or any third-party services. We implement reasonable security measures to protect your information from unauthorized access or disclosure.</p>
-
-    <h2>Sharing Your Information</h2>
-    <p>We do not share your personal information with any third parties.</p>
-
-    <h2>Your Rights</h2>
-    <p>You have the right to:</p>
-    <ul>
-      <li>Delete or edit contacts you saved.</li>
-      <li>Login or logout from WhatsApp Web</li>
-    </ul>
-
-    <h2>Changes to This Privacy Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
-
-    <h2>Contact Us</h2>
-    <p>If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
-    <p>Email: awanmsaim182@gmail.com</p>
-    <p>WhatsApp: +92-3164168178</p>
-
-    <p>By using our app, you agree to the terms of this Privacy Policy.</p>
+    <div class="header">
+      <div class="logo"></div>
+      <h1>Privacy Policy</h1>
+      <p class="subtitle">Your Privacy Matters - Our Commitment to Protecting Your Data</p>
+    </div>
+    
+    <div class="content">
+      <div class="highlight-box">
+        <p>QuickChat operates entirely on your device. We don't collect, store, or share your contact data, messages, or personal information. Your privacy is 100% protected.</p>
+        <div class="security-badge">100% Local Storage • No Cloud Sync • Complete Privacy</div>
+      </div>
+      
+      <h2>Introduction</h2>
+      <p>Welcome to <strong style="color: var(--secondary-color);">QuickChat</strong>, your ultimate WhatsApp companion. Your privacy is our top priority. This Privacy Policy explains in detail how we handle your information when you use our app. We are committed to transparency and protecting your personal data.</p>
+      
+      <h2>Information We Collect</h2>
+      <p>QuickChat follows a privacy-first approach and collects minimal information:</p>
+      <ul>
+        <li><strong>Phone Numbers:</strong> When you enter a phone number to open it in WhatsApp or WhatsApp Business.</li>
+        <li><strong>Contact Information:</strong> When you voluntarily save phone numbers within the app's contact manager.</li>
+        <li><strong>Usage Data:</strong> App activity logs stored locally for your reference (call history, timestamps).</li>
+        <li><strong>App Preferences:</strong> Your settings such as lock screen preferences, theme choices, and display options.</li>
+      </ul>
+      
+      <h3>What We Don't Collect</h3>
+      <ul>
+        <li>Your personal messages or chat content</li>
+        <li>Contact lists from your phone</li>
+        <li>Location data</li>
+        <li>Device identifiers</li>
+        <li>Payment information</li>
+      </ul>
+      
+      <h2>How We Use Your Information</h2>
+      <p>All collected information serves specific purposes within the app:</p>
+      <ul>
+        <li>To enable direct WhatsApp access without saving numbers to device contacts</li>
+        <li>To maintain your personal contact list within the app</li>
+        <li>To provide WhatsApp Web QR code scanning functionality</li>
+        <li>To display your recent activity history for easy reference</li>
+        <li>To implement security features like app locking</li>
+        <li>To improve app performance and user experience</li>
+      </ul>
+      
+      <h2>Data Storage and Security <span class="badge">Local Only</span></h2>
+      <h3>Local Storage</h3>
+      <p>All your data is stored <strong>exclusively on your device</strong>. We do not transmit any information to external servers or third-party services. Your contacts, history, and preferences remain private and secure on your smartphone.</p>
+      
+      <h3>Security Measures</h3>
+      <ul>
+        <li><strong>Device Encryption:</strong> Data is stored using your device's native encryption</li>
+        <li><strong>Lock Screen Protection:</strong> Optional PIN, pattern, or biometric authentication</li>
+        <li><strong>No Internet Transmission:</strong> Zero data sent to our servers</li>
+        <li><strong>Secure Deletion:</strong> Complete data removal upon app uninstallation</li>
+      </ul>
+      
+      <h2>Sharing Your Information</h2>
+      <p><strong>We do not share, sell, trade, or rent your personal information to anyone.</strong></p>
+      <p>The only exception is when you explicitly choose to share contacts or messages through your device's sharing capabilities (WhatsApp, email, messaging apps, etc.). This sharing is controlled entirely by you.</p>
+      
+      <h2>Your Rights and Controls</h2>
+      <p>You have complete control over your data:</p>
+      <ul>
+        <li><strong>Full Access:</strong> View, edit, or delete any contact you've saved</li>
+        <li><strong>History Management:</strong> Clear your recent activity logs at any time</li>
+        <li><strong>Privacy Settings:</strong> Enable/disable app locking and other security features</li>
+        <li><strong>Data Export:</strong> Share your saved contacts via standard sharing options</li>
+        <li><strong>Complete Removal:</strong> Uninstall the app to delete all associated data</li>
+      </ul>
+      
+      <div class="contact-info">
+        <h3>Contact Us</h3>
+        <p>If you have any questions, concerns, or feedback about our Privacy Policy or data practices, please reach out:</p>
+        
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <strong>Email:</strong><br>
+            <a href="mailto:awanmsaim182@gmail.com" style="color: var(--accent-color); text-decoration: none;">awanmsaim182@gmail.com</a>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div>
+            <strong>WhatsApp:</strong><br>
+            <a href="https://wa.me/923164168178" style="color: var(--accent-color); text-decoration: none;">+92-3164168178</a>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">🕒</div>
+          <div>
+            <strong>Response Time:</strong><br>
+            We aim to respond within 24-48 hours
+          </div>
+        </div>
+      </div>
+      
+      <h2>Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy to reflect changes in our practices or for other operational, legal, or regulatory reasons. When we make changes, we will:</p>
+      <ul>
+        <li>Update the "Last Updated" date at the bottom of this page</li>
+        <li>Provide in-app notifications for significant changes</li>
+        <li>Post the updated policy on our website and app stores</li>
+      </ul>
+      <p>We encourage you to periodically review this Privacy Policy to stay informed about how we are protecting your information.</p>
+      
+      <div class="highlight-box">
+        <p><strong>By using QuickChat, you acknowledge that you have read and understood this Privacy Policy and agree to its terms.</strong></p>
+        <p>Thank you for trusting us with your privacy. We're committed to providing a secure and private messaging experience.</p>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>&copy; 2024 QuickChat. All rights reserved.</p>
+      <p class="last-updated">Last Updated: December 2024</p>
+    </div>
   </div>
 </body>
 </html>
