@@ -420,7 +420,7 @@
         <ul>
           <li>Remove all advertisements from the app</li>
           <li>Sign in with Google for optional cloud backup</li>
-          <li>Sync contacts and message templates across devices via Firebase</li>
+          <li>Sync contacts and message templates across devices via Cloud</li>
           <li>Offline access to your synced data</li>
         </ul>
 
@@ -449,8 +449,8 @@
         <p>Cloud storage is <strong>completely optional</strong> and only available to active premium subscribers. You can use the full app without ever signing in or enabling cloud sync.</p>
         <ul>
           <li>Cloud sync requires signing in with your Google account.</li>
-          <li>Your contacts are stored in Firebase Firestore under the path <code style="background:#dce8f7; padding:2px 6px; border-radius:4px; font-size:0.9rem;">quickchat_contacts/{userId}/contacts</code>.</li>
-          <li>Your message templates are stored under <code style="background:#dce8f7; padding:2px 6px; border-radius:4px; font-size:0.9rem;">quickchat_templates/{userId}/templates</code>.</li>
+          <li>Your contacts are stored in the Cloud.</li>
+          <li>Your message templates are stored in the Cloud.</li>
           <li>Firebase security rules ensure only you can read or write your own data.</li>
           <li>All communication with Firebase is encrypted over HTTPS.</li>
           <li>You can sign out at any time to stop cloud sync. Your local data remains on your device.</li>
