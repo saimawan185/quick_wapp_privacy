@@ -17,13 +17,9 @@
       --border-color: #e9ecef;
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
@@ -32,7 +28,7 @@
       min-height: 100vh;
       padding: 20px;
     }
-    
+
     .container {
       max-width: 900px;
       margin: 40px auto;
@@ -42,7 +38,8 @@
       overflow: hidden;
       border: 1px solid var(--border-color);
     }
-    
+
+    /* ── Header ── */
     .header {
       background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
       color: white;
@@ -51,55 +48,73 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     .header::before {
       content: '';
       position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
+      top: -50%; right: -50%;
+      width: 200%; height: 200%;
       background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
       background-size: 20px 20px;
       opacity: 0.1;
       transform: rotate(30deg);
     }
-    
+
     .logo {
-      width: 80px;
-      height: 80px;
+      width: 80px; height: 80px;
       background: white;
       border-radius: 50%;
       margin: 0 auto 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    
-    .logo::before {
-      content: '💬';
-      font-size: 40px;
-    }
-    
+
+    .logo::before { content: '💬'; font-size: 40px; }
+
     h1 {
       font-size: 2.8rem;
       margin-bottom: 10px;
       font-weight: 700;
       letter-spacing: -0.5px;
     }
-    
+
     .subtitle {
       font-size: 1.2rem;
       font-weight: 300;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 20px;
     }
-    
-    .content {
-      padding: 50px;
+
+    /* ── Play Store Button ── */
+    .playstore-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.4);
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-top: 6px;
+      transition: background 0.2s ease, transform 0.2s ease;
+      backdrop-filter: blur(4px);
     }
-    
+
+    .playstore-btn:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
+    }
+
+    .playstore-btn .ps-icon { font-size: 1.3rem; }
+
+    /* ── Content ── */
+    .content { padding: 50px; }
+
     h2 {
       color: var(--secondary-color);
       margin: 40px 0 20px;
@@ -109,40 +124,30 @@
       position: relative;
       display: inline-block;
     }
-    
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: var(--primary-color);
-    }
-    
+
     h3 {
       color: var(--accent-color);
       margin: 25px 0 10px;
       font-size: 1.3rem;
     }
-    
+
     p {
       margin-bottom: 15px;
       color: var(--light-text);
       font-size: 1.05rem;
     }
-    
+
     ul, ol {
       margin: 15px 0 25px 25px;
       color: var(--light-text);
     }
-    
+
     li {
       margin-bottom: 10px;
       padding-left: 5px;
       position: relative;
     }
-    
+
     li::before {
       content: '•';
       color: var(--primary-color);
@@ -152,7 +157,7 @@
       margin-left: -1em;
       font-size: 1.2em;
     }
-    
+
     .highlight-box {
       background: var(--section-bg);
       border-left: 4px solid var(--primary-color);
@@ -160,13 +165,95 @@
       margin: 25px 0;
       border-radius: 0 10px 10px 0;
     }
-    
-    .highlight-box p {
-      margin-bottom: 0;
-      color: var(--text-color);
-      font-weight: 500;
+
+    .highlight-box p { margin-bottom: 10px; color: var(--text-color); font-weight: 500; }
+    .highlight-box p:last-child { margin-bottom: 0; }
+
+    /* ── Premium Box ── */
+    .premium-box {
+      background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f1 100%);
+      border: 2px solid var(--primary-color);
+      border-radius: 16px;
+      padding: 28px;
+      margin: 25px 0;
     }
-    
+
+    .premium-box h3 {
+      color: var(--secondary-color);
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .premium-box p { color: var(--text-color); }
+
+    .plan-row {
+      display: flex;
+      gap: 16px;
+      margin: 18px 0 10px;
+      flex-wrap: wrap;
+    }
+
+    .plan-card {
+      flex: 1;
+      min-width: 160px;
+      background: white;
+      border: 1.5px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+
+    .plan-card .plan-name {
+      font-weight: 700;
+      color: var(--secondary-color);
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .plan-card .plan-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .plan-card .plan-period {
+      font-size: 0.85rem;
+      color: var(--light-text);
+    }
+
+    /* ── Cloud Box ── */
+    .cloud-box {
+      background: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
+      border: 2px solid #90caf9;
+      border-radius: 16px;
+      padding: 28px;
+      margin: 25px 0;
+    }
+
+    .cloud-box h3 {
+      color: #1565c0;
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cloud-box p, .cloud-box li { color: var(--text-color); }
+
+    .optional-badge {
+      display: inline-block;
+      background: #1565c0;
+      color: white;
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* ── Contact ── */
     .contact-info {
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
       border-radius: 15px;
@@ -174,21 +261,17 @@
       margin: 40px 0;
       border: 2px dashed var(--border-color);
     }
-    
-    .contact-info h3 {
-      color: var(--secondary-color);
-      margin-top: 0;
-    }
-    
+
+    .contact-info h3 { color: var(--secondary-color); margin-top: 0; }
+
     .contact-item {
       display: flex;
       align-items: center;
       margin: 15px 0;
     }
-    
+
     .contact-icon {
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       background: var(--primary-color);
       border-radius: 50%;
       display: flex;
@@ -197,8 +280,16 @@
       margin-right: 15px;
       color: white;
       font-size: 1.2rem;
+      flex-shrink: 0;
     }
-    
+
+    .contact-item a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover { text-decoration: underline; }
+
     .security-badge {
       display: inline-flex;
       align-items: center;
@@ -209,12 +300,9 @@
       font-weight: 600;
       margin: 10px 0;
     }
-    
-    .security-badge::before {
-      content: '🔒';
-      margin-right: 8px;
-    }
-    
+
+    .security-badge::before { content: '🔒'; margin-right: 8px; }
+
     .badge {
       display: inline-block;
       background: var(--primary-color);
@@ -226,7 +314,8 @@
       margin-left: 10px;
       vertical-align: middle;
     }
-    
+
+    /* ── Footer ── */
     .footer {
       text-align: center;
       padding: 30px;
@@ -234,179 +323,261 @@
       color: var(--light-text);
       border-top: 1px solid var(--border-color);
     }
-    
-    .last-updated {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      margin-top: 10px;
+
+    .footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
     }
-    
+
+    .last-updated { font-size: 0.9rem; opacity: 0.8; margin-top: 10px; }
+
+    /* ── Responsive ── */
     @media (max-width: 768px) {
-      .content {
-        padding: 30px;
-      }
-      
-      h1 {
-        font-size: 2.2rem;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-      }
-      
-      .header {
-        padding: 30px 20px;
-      }
+      .content { padding: 30px; }
+      h1 { font-size: 2.2rem; }
+      h2 { font-size: 1.5rem; }
+      .header { padding: 30px 20px; }
     }
-    
+
     @media (max-width: 480px) {
-      body {
-        padding: 10px;
-      }
-      
-      .content {
-        padding: 20px;
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      .contact-item {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .contact-icon {
-        margin-right: 0;
-        margin-bottom: 10px;
-      }
+      body { padding: 10px; }
+      .content { padding: 20px; }
+      h1 { font-size: 1.8rem; }
+      .contact-item { flex-direction: column; text-align: center; }
+      .contact-icon { margin-right: 0; margin-bottom: 10px; }
+      .plan-row { flex-direction: column; }
     }
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- Header -->
     <div class="header">
       <div class="logo"></div>
       <h1>Privacy Policy</h1>
-      <p class="subtitle">Your Privacy Matters - Our Commitment to Protecting Your Data</p>
+      <p class="subtitle">Your Privacy Matters — Our Commitment to Protecting Your Data</p>
+      <a class="playstore-btn"
+         href="https://play.google.com/store/apps/details?id=ccom.tetratech.quickchat_whatsapp"
+         target="_blank">
+        <span class="ps-icon">▶</span> Download on Google Play
+      </a>
     </div>
-    
+
     <div class="content">
+
       <div class="highlight-box">
-        <p>QuickChat operates entirely on your device. We don't collect, store, or share your contact data, messages, or personal information. Your privacy is 100% protected.</p>
-        <div class="security-badge">100% Local Storage • No Cloud Sync • Complete Privacy</div>
+        <p>QuickChat stores all your data locally on your device by default. Optionally, premium subscribers may enable cloud sync to back up their contacts and templates securely via Firebase.</p>
+        <div class="security-badge">Local-First Storage • Optional Cloud Sync • Complete Privacy</div>
       </div>
-      
+
+      <!-- Introduction -->
       <h2>Introduction</h2>
       <p>Welcome to <strong style="color: var(--secondary-color);">QuickChat</strong>, your ultimate WhatsApp companion. Your privacy is our top priority. This Privacy Policy explains in detail how we handle your information when you use our app. We are committed to transparency and protecting your personal data.</p>
-      
+
+      <!-- Information We Collect -->
       <h2>Information We Collect</h2>
       <p>QuickChat follows a privacy-first approach and collects minimal information:</p>
       <ul>
         <li><strong>Phone Numbers:</strong> When you enter a phone number to open it in WhatsApp or WhatsApp Business.</li>
         <li><strong>Contact Information:</strong> When you voluntarily save phone numbers within the app's contact manager.</li>
+        <li><strong>Message Templates:</strong> When you create and save message templates within the app.</li>
         <li><strong>Usage Data:</strong> App activity logs stored locally for your reference (call history, timestamps).</li>
         <li><strong>App Preferences:</strong> Your settings such as lock screen preferences, theme choices, and display options.</li>
+        <li><strong>Google Account (optional):</strong> If you choose to sign in with Google as a premium subscriber, we receive your name, email address, and profile photo solely to identify your account for cloud sync.</li>
       </ul>
-      
+
       <h3>What We Don't Collect</h3>
       <ul>
         <li>Your personal messages or chat content</li>
-        <li>Contact lists from your phone</li>
+        <li>Contact lists from your phone's native contacts</li>
         <li>Location data</li>
         <li>Device identifiers</li>
-        <li>Payment information</li>
+        <li>Payment or billing information</li>
       </ul>
-      
+
+      <!-- How We Use It -->
       <h2>How We Use Your Information</h2>
       <p>All collected information serves specific purposes within the app:</p>
       <ul>
         <li>To enable direct WhatsApp access without saving numbers to device contacts</li>
-        <li>To maintain your personal contact list within the app</li>
+        <li>To maintain your personal contact list and message templates within the app</li>
         <li>To provide WhatsApp Web QR code scanning functionality</li>
         <li>To display your recent activity history for easy reference</li>
         <li>To implement security features like app locking</li>
+        <li>To sync your contacts and templates to the cloud if you have an active premium subscription and are signed in with Google</li>
+        <li>To verify your subscription status and unlock premium features</li>
         <li>To improve app performance and user experience</li>
       </ul>
-      
-      <h2>Data Storage and Security <span class="badge">Local Only</span></h2>
-      <h3>Local Storage</h3>
-      <p>All your data is stored <strong>exclusively on your device</strong>. We do not transmit any information to external servers or third-party services. Your contacts, history, and preferences remain private and secure on your smartphone.</p>
-      
+
+      <!-- Premium Subscriptions -->
+      <h2>Premium Subscriptions ⭐</h2>
+      <p>QuickChat offers optional premium subscriptions that unlock additional features including cloud backup and an ad-free experience.</p>
+
+      <div class="premium-box">
+        <h3>⭐ Premium Features</h3>
+        <ul>
+          <li>Remove all advertisements from the app</li>
+          <li>Sign in with Google for optional cloud backup</li>
+          <li>Sync contacts and message templates across devices via Firebase</li>
+          <li>Offline access to your synced data</li>
+        </ul>
+
+        <div class="plan-row">
+          <div class="plan-card">
+            <div class="plan-name">Monthly</div>
+            <div class="plan-price">$0.49</div>
+            <div class="plan-period">per month</div>
+          </div>
+          <div class="plan-card">
+            <div class="plan-name">Yearly</div>
+            <div class="plan-price">$4.99</div>
+            <div class="plan-period">per year · Best Value</div>
+          </div>
+        </div>
+
+        <p>Payments are processed securely by <strong>Google Play</strong>. Subscriptions auto-renew unless cancelled at least 24 hours before the end of the billing period. You can manage or cancel your subscription at any time through your Google Play account settings.</p>
+        <p>Subscription status is verified through <strong>RevenueCat</strong>. RevenueCat may collect anonymous usage data to provide this service. See their privacy policy at <a href="https://www.revenuecat.com/privacy" target="_blank" style="color: var(--accent-color);">revenuecat.com/privacy</a>.</p>
+      </div>
+
+      <!-- Cloud Storage -->
+      <h2>Cloud Storage &amp; Sync <span class="optional-badge">Optional</span></h2>
+
+      <div class="cloud-box">
+        <h3>☁️ How Cloud Sync Works</h3>
+        <p>Cloud storage is <strong>completely optional</strong> and only available to active premium subscribers. You can use the full app without ever signing in or enabling cloud sync.</p>
+        <ul>
+          <li>Cloud sync requires signing in with your Google account.</li>
+          <li>Your contacts are stored in Firebase Firestore under the path <code style="background:#dce8f7; padding:2px 6px; border-radius:4px; font-size:0.9rem;">quickchat_contacts/{userId}/contacts</code>.</li>
+          <li>Your message templates are stored under <code style="background:#dce8f7; padding:2px 6px; border-radius:4px; font-size:0.9rem;">quickchat_templates/{userId}/templates</code>.</li>
+          <li>Firebase security rules ensure only you can read or write your own data.</li>
+          <li>All communication with Firebase is encrypted over HTTPS.</li>
+          <li>You can sign out at any time to stop cloud sync. Your local data remains on your device.</li>
+          <li>You can permanently delete all cloud data at any time from <strong>Account Settings → Delete Account Data</strong> inside the app.</li>
+        </ul>
+        <p>We use <strong>Firebase</strong> (by Google) for authentication and cloud storage. Firebase's privacy policy: <a href="https://firebase.google.com/support/privacy" target="_blank" style="color: #1565c0;">firebase.google.com/support/privacy</a>.</p>
+      </div>
+
+      <!-- Data Storage and Security -->
+      <h2>Data Storage and Security <span class="badge">Local First</span></h2>
+
+      <h3>Local Storage (Default)</h3>
+      <p>All your data is stored <strong>exclusively on your device</strong> by default. We do not transmit any information to external servers unless you explicitly enable cloud sync as a premium subscriber.</p>
+
       <h3>Security Measures</h3>
       <ul>
         <li><strong>Device Encryption:</strong> Data is stored using your device's native encryption</li>
         <li><strong>Lock Screen Protection:</strong> Optional PIN, pattern, or biometric authentication</li>
-        <li><strong>No Internet Transmission:</strong> Zero data sent to our servers</li>
-        <li><strong>Secure Deletion:</strong> Complete data removal upon app uninstallation</li>
+        <li><strong>Firebase Security Rules:</strong> Cloud data is protected so only you can access it</li>
+        <li><strong>HTTPS Encryption:</strong> All cloud communications are fully encrypted</li>
+        <li><strong>Secure Deletion:</strong> Complete local data removal upon app uninstallation</li>
+        <li><strong>Cloud Data Deletion:</strong> Delete your cloud data any time from within the app</li>
       </ul>
-      
+
+      <!-- Advertising -->
+      <h2>Advertising</h2>
+      <p>The free version of QuickChat displays advertisements served by <strong>Google AdMob</strong> and may include mediation through <strong>Unity Ads</strong>. These services may collect device identifiers and usage data to serve relevant advertisements. Premium subscribers have all advertisements permanently removed.</p>
+      <p>For more information about how Google uses data from apps that use AdMob, visit <a href="https://policies.google.com/privacy" target="_blank" style="color: var(--accent-color);">policies.google.com/privacy</a>.</p>
+
+      <!-- Third-Party Services -->
+      <h2>Third-Party Services</h2>
+      <p>Our app integrates the following third-party services, each governed by their own privacy policies:</p>
+      <ul>
+        <li><strong>Google Play:</strong> For app distribution and subscription billing</li>
+        <li><strong>Firebase (Google):</strong> For optional authentication and cloud data storage</li>
+        <li><strong>RevenueCat:</strong> For subscription management and verification</li>
+        <li><strong>Google AdMob:</strong> For displaying advertisements (free users only)</li>
+        <li><strong>Unity Ads:</strong> For ad mediation (free users only)</li>
+        <li><strong>Firebase Cloud Messaging:</strong> For optional push notifications</li>
+        <li><strong>WhatsApp / WhatsApp Business:</strong> External apps opened by user action only</li>
+      </ul>
+
+      <!-- Sharing -->
       <h2>Sharing Your Information</h2>
       <p><strong>We do not share, sell, trade, or rent your personal information to anyone.</strong></p>
       <p>The only exception is when you explicitly choose to share contacts or messages through your device's sharing capabilities (WhatsApp, email, messaging apps, etc.). This sharing is controlled entirely by you.</p>
-      
+
+      <!-- Your Rights -->
       <h2>Your Rights and Controls</h2>
       <p>You have complete control over your data:</p>
       <ul>
-        <li><strong>Full Access:</strong> View, edit, or delete any contact you've saved</li>
+        <li><strong>Full Access:</strong> View, edit, or delete any contact or template you've saved</li>
         <li><strong>History Management:</strong> Clear your recent activity logs at any time</li>
-        <li><strong>Privacy Settings:</strong> Enable/disable app locking and other security features</li>
+        <li><strong>Cloud Opt-Out:</strong> Sign out of Google at any time to stop cloud sync</li>
+        <li><strong>Cloud Data Deletion:</strong> Permanently delete all cloud data from Account Settings in the app</li>
+        <li><strong>Google Permission Revocation:</strong> Revoke app access at <a href="https://myaccount.google.com/permissions" target="_blank" style="color: var(--accent-color);">myaccount.google.com/permissions</a></li>
+        <li><strong>Privacy Settings:</strong> Enable/disable app locking and security features</li>
         <li><strong>Data Export:</strong> Share your saved contacts via standard sharing options</li>
-        <li><strong>Complete Removal:</strong> Uninstall the app to delete all associated data</li>
+        <li><strong>Complete Removal:</strong> Uninstall the app to delete all local data</li>
       </ul>
-      
+
+      <!-- Contact -->
       <div class="contact-info">
         <h3>Contact Us</h3>
         <p>If you have any questions, concerns, or feedback about our Privacy Policy or data practices, please reach out:</p>
-        
+
         <div class="contact-item">
           <div class="contact-icon">✉️</div>
           <div>
             <strong>Email:</strong><br>
-            <a href="mailto:awanmsaim182@gmail.com" style="color: var(--accent-color); text-decoration: none;">awanmsaim182@gmail.com</a>
+            <a href="mailto:awanmsaim182@gmail.com">awanmsaim182@gmail.com</a>
           </div>
         </div>
-        
+
         <div class="contact-item">
           <div class="contact-icon">💬</div>
           <div>
             <strong>WhatsApp:</strong><br>
-            <a href="https://wa.me/923164168178" style="color: var(--accent-color); text-decoration: none;">+92-3164168178</a>
+            <a href="https://wa.me/923164168178">+92-3164168178</a>
           </div>
         </div>
-        
+
+        <div class="contact-item">
+          <div class="contact-icon">▶</div>
+          <div>
+            <strong>Google Play:</strong><br>
+            <a href="https://play.google.com/store/apps/details?id=ccom.tetratech.quickchat_whatsapp"
+               target="_blank">QuickChat on Google Play</a>
+          </div>
+        </div>
+
         <div class="contact-item">
           <div class="contact-icon">🕒</div>
           <div>
             <strong>Response Time:</strong><br>
-            We aim to respond within 24-48 hours
+            We aim to respond within 24–48 hours
           </div>
         </div>
       </div>
-      
+
+      <!-- Changes -->
       <h2>Changes to This Privacy Policy</h2>
-      <p>We may update this Privacy Policy to reflect changes in our practices or for other operational, legal, or regulatory reasons. When we make changes, we will:</p>
+      <p>We may update this Privacy Policy to reflect changes in our practices or for operational, legal, or regulatory reasons. When we make changes, we will:</p>
       <ul>
         <li>Update the "Last Updated" date at the bottom of this page</li>
         <li>Provide in-app notifications for significant changes</li>
         <li>Post the updated policy on our website and app stores</li>
       </ul>
-      <p>We encourage you to periodically review this Privacy Policy to stay informed about how we are protecting your information.</p>
-      
+      <p>We encourage you to periodically review this Privacy Policy to stay informed about how we protect your information.</p>
+
       <div class="highlight-box">
         <p><strong>By using QuickChat, you acknowledge that you have read and understood this Privacy Policy and agree to its terms.</strong></p>
         <p>Thank you for trusting us with your privacy. We're committed to providing a secure and private messaging experience.</p>
       </div>
+
     </div>
-    
+
+    <!-- Footer -->
     <div class="footer">
       <p>&copy; 2026 QuickChat. All rights reserved.</p>
-      <p class="last-updated">Last Updated: February 2026</p>
+      <p style="margin-top:8px;">
+        <a href="https://play.google.com/store/apps/details?id=ccom.tetratech.quickchat_whatsapp"
+           target="_blank">▶ Download on Google Play</a>
+      </p>
+      <p class="last-updated">Last Updated: June 2026</p>
     </div>
+
   </div>
 </body>
 </html>
-
-
-
